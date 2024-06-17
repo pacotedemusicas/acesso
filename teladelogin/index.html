@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pacote com mais de 520 mil músicas</title>
+</head>
+<body>
+    <form>
+    <div class="form-field">
+        <img src="logo.png" alt="Logo da empresa" width="250" height="81">
+        <h2>ÁREA DE LOGIN</h2>
+        <h3>Acesse mais de 520 mil músicas.</h3>
+        <form id="loginForm" onsubmit="signInWithEmailPassword(); return false;">
+            <input type="email" name="email" id="email" placeholder="Seu email de compra" onchange="onChangeEmail()"/>
+            <span id="email-invalid-error" class="error-message">Email é inválido</span>
+            <br><br>
+            <input type="password" name="password" id="password" placeholder=" Sua senha" onchange="onChangePassword()"/>
+            <span id="password-invalid-error" class="error-message">Senha é obrigatória</span>
+            <br><br>
+            <button type="button" class="solid" id="login-button" disabled="true" onclick="login()">ACESSAR O PACOTE</button>
+            <p class="aviso"><span style="font-family: 'Roboto', sans-serif; font-weight: 900; letter-spacing: 0px;">IMPORTANTE:</span> Não compartilhe a sua senha com outra pessoa. Usamos identificação de senha, caso haja vários dispositivos acessando o pacote com a mesma senha, a sua conta será suspensa. O máximo de acesso simultâneo utilizável é um celular e um computador.</p>
+        </form>
+    </div>
+
+<link rel="stylesheet" href="index.css">
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="firebase-init.js"></script>
+
+<script src="index.js"></script>
+<script src="validations.js"></script>
+<script src="loading.js"></script>
+</body>
+</html>
