@@ -1,8 +1,8 @@
 firebase.auth().onAuthStateChanged(user => {
     if (user) {
-        window.location.href = "../teladelogin/pages/acesso.html";
+        window.location.href = "pages/acesso.html";
     }
-})
+});
 
 function onChangeEmail() {
     toggleButtonsDisable();
@@ -20,7 +20,7 @@ function login() {
         form.email().value, form.password().value
     ).then(response => {
         hideLoading();
-        window.location.href = "../teladelogin/pages/acesso.html";
+        window.location.href = "pages/acesso.html";
     }).catch(error => {
         hideLoading();
         alert(getErrorMessage(error));
@@ -29,7 +29,7 @@ function login() {
 
 function getErrorMessage(error) {
     if (error.code == "auth/user-not-found") {
-        return "Usuário nao encontrado";
+        return "Usuário não encontrado";
     }
     return error.message;
 }
@@ -37,7 +37,6 @@ function getErrorMessage(error) {
 function toggleEmailErrors() {
     const email = form.email().value;
     form.emailRequiredError().style.display = email ? "none" : "block";
-    
     form.emailInvalidError().style.display = validateEmail(email) ? "none" : "block";
 }
 
@@ -48,17 +47,13 @@ function togglePasswordErrors() {
 
 function toggleButtonsDisable() {
     const emailValid = isEmailValid();
-
     const passwordValid = isPasswordValid();
     form.loginButton().disabled = !emailValid || !passwordValid;
 }
 
 function isEmailValid() {
     const email = form.email().value;
-    if (!email) {
-        return false;
-    }
-    return validateEmail(email);
+    return email && validateEmail(email);
 }
 
 function isPasswordValid() {
@@ -72,4 +67,4 @@ const form = {
     loginButton: () => document.getElementById("login-button"),
     password: () => document.getElementById("password"),
     passwordRequiredError: () => document.getElementById("password-required-error"),
-} 
+};
