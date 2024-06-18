@@ -1,6 +1,6 @@
 firebase.auth().onAuthStateChanged(user => {
     if (user) {
-        window.location.href = "acesso.html";
+        window.location.href = "https://pacotedemusicas.github.io/acesso/acesso.html";
     }
 })
 
@@ -20,7 +20,7 @@ function login() {
         form.email().value, form.password().value
     ).then(response => {
         hideLoading();
-        window.location.href = "acesso.html";
+        window.location.href = "https://pacotedemusicas.github.io/acesso/acesso.html";
     }).catch(error => {
         hideLoading();
         alert(getErrorMessage(error));
