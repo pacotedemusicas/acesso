@@ -1,0 +1,125 @@
+/* Estilos gerais */
+.body-caminhoneiro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    overflow-x: hidden;
+}
+
+.site-banner-caminhoneiro {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.site-banner-caminhoneiro img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.container-caminhoneiro {
+    max-width: 1200px;
+    padding: 20px;
+    text-align: center;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-size: 24px;
+    color: #333;
+}
+
+.button-caminhoneiro {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.button-caminhoneiro button {
+    width: 100%;
+    max-width: 263px;
+    height: 61px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #fff;
+    background: linear-gradient(270deg, #fd7200, #ff0000);
+    background-size: 200% 200%;
+    animation: gradientAnimation 3s linear infinite;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: none;
+    border-radius: 30px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.button-caminhoneiro button:hover {
+    background: deepskyblue;
+    color: #333;
+}
+
+/* Estilos da seção de benefícios */
+.benefits-section-caminhoneiro {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.benefits-section-caminhoneiro h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.attention-caminhoneiro {
+    font-size: 16px;
+    color: #000000;
+    margin-bottom: 40px;
+}
+
+.benefits-container-caminhoneiro {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.benefit-column-caminhoneiro {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+    text-align: left;
+}
+
+.benefit-column-caminhoneiro p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.benefit-column-caminhoneiro img.check-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+@media (max-width: 900px) {
+    .button-caminhoneiro {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+}

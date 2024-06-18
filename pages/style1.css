@@ -1,0 +1,137 @@
+.clear {
+    width: 100%;
+    max-width: 263px;
+    height: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #fff;
+    background: linear-gradient(270deg, #ff0000, #f37500);
+    background-size: 200% 200%;
+    animation: gradientAnimation 3s linear infinite;
+    white-space: normal; /* Mudança aqui para permitir quebrar palavras */
+    word-wrap: break-word; /* Permite a quebra de palavras */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: none;
+    transition: background-color 0.3s, color 0.3s;
+    margin: 20px auto;
+    display: block;
+    margin-bottom: -10px;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+/* Reset de estilos e definições gerais */
+* {
+    margin: 50;
+    padding: 0;
+    box-sizing: border-box;
+    border-radius: 30px; /* Arredonda todas as bordas */
+}
+
+/* Estilos gerais */
+.body-genero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    overflow-x: hidden;
+}
+
+.site-banner {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.site-banner img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.container-genero {
+    max-width: 1200px;
+    padding: 20px;
+    text-align: center;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 30px; /* Arredonda todas as bordas */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.button-genero {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.button-genero a {
+    text-decoration: none;
+}
+
+.button-genero button {
+    width: 100%;
+    max-width: 263px;
+    height: 61px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #fff;
+    background: linear-gradient(270deg, #007BFF, #7936b8);
+    background-size: 200% 200%;
+    animation: gradientAnimation 3s linear infinite;
+    white-space: normal; /* Mudança aqui para permitir quebrar palavras */
+    word-wrap: break-word; /* Permite a quebra de palavras */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: none;
+    border-radius: 30px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.button-genero button:hover {
+    background: deepskyblue;
+    color: #333;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: -200% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 200% 50%;
+    }
+}
+
+@media (max-width: 600px) {
+    .button-genero {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .button-genero button {
+        height: 70px;
+        font-size: 15px;
+    }
+}
