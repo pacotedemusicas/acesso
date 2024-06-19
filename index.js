@@ -16,9 +16,8 @@ function onChangePassword() {
 
 function login() {
     showLoading();
-    firebase.auth().signInWithEmailAndPassword(
-        form.email().value, form.password().value
-    ).then(response => {
+    firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider())
+    .then(response => {
         hideLoading();
         window.location.href = "pages/acesso.html";
     }).catch(error => {
@@ -68,3 +67,16 @@ const form = {
     password: () => document.getElementById("password"),
     passwordRequiredError: () => document.getElementById("password-required-error"),
 };
+
+function showLoading() {
+    // Adicione a lógica para mostrar um indicador de carregamento
+}
+
+function hideLoading() {
+    // Adicione a lógica para esconder o indicador de carregamento
+}
+
+function validateEmail(email) {
+    // Adicione a lógica para validar o email
+    return true; // Substitua isso com a validação real
+}
