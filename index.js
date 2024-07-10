@@ -1,70 +1,60 @@
-firebase.auth().onAuthStateChanged(user => {
-    if (user) {
-        window.location.href = "pages/acesso.html";
-    }
+// index.js
+
+const express = require('express');
+const bodyParser = require('body-parser');
+const admin = require('firebase-admin');
+const crypto = require('crypto');
+const serviceAccount = require('./serviceAccountKey.json'); // Certifique-se de colocar a chave de serviço na mesma pasta
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: 'https://pacote-de-musicas-default-rtdb.firebaseio.com'
 });
 
-function onChangeEmail() {
-    toggleButtonsDisable();
-    toggleEmailErrors();
+const db = admin.firestore();
+const app = express();
+const port = process.env.PORT || 3000;
+
+app.use(bodyParser.json());
+
+function validateWebhookSignature(req, res, next) {
+  const signature = req.headers['x-yampi-hmac-sha256'];
+  const payload = JSON.stringify(req.body);
+  const secret = 'wh_PPzDjhDZrmyClRgB5O3gfwoUCpZYNE6spSs8H';
+
+  const hmac = crypto.createHmac('sha256', secret);
+  hmac.update(payload);
+  const calculatedSignature = hmac.digest('base64');
+
+  if (signature === calculatedSignature) {
+    next();
+  } else {
+    res.status(401).send('Assinatura inválida');
+  }
 }
 
-function onChangePassword() {
-    toggleButtonsDisable();
-    togglePasswordErrors();
-}
+app.post('/yampi-webhook', validateWebhookSignature, async (req, res) => {
+  try {
+    const { email } = req.body.resource;
 
-function login() {
-    showLoading();
-    firebase.auth().signInWithEmailAndPassword(
-        form.email().value, form.password().value
-    ).then(response => {
-        hideLoading();
-        window.location.href = "pages/acesso.html";
-    }).catch(error => {
-        hideLoading();
-        alert(getErrorMessage(error));
-    });
-}
-
-function getErrorMessage(error) {
-    if (error.code == "auth/user-not-found") {
-        return "Usuário não encontrado";
+    if (email) {
+      const usuarioRef = db.collection('users').doc();
+      await usuarioRef.set({
+        email: email,
+        dataCadastro: admin.firestore.Timestamp.now()
+      });
+      console.log(`Usuário ${email} adicionado ao Firestore com sucesso!`);
+    } else {
+      console.error('Webhook da Yampi recebido sem email válido.');
     }
-    return error.message;
-}
 
-function toggleEmailErrors() {
-    const email = form.email().value;
-    form.emailRequiredError().style.display = email ? "none" : "block";
-    form.emailInvalidError().style.display = validateEmail(email) ? "none" : "block";
-}
+    res.status(200).send('Webhook recebido com sucesso.');
+  } catch (error) {
+    console.error('Erro ao processar webhook da Yampi:', error);
+    res.status(500).send('Erro ao processar webhook da Yampi.');
+  }
+});
 
-function togglePasswordErrors() {
-    const password = form.password().value;
-    form.passwordRequiredError().style.display = password ? "none" : "block";
-}
-
-function toggleButtonsDisable() {
-    const emailValid = isEmailValid();
-    const passwordValid = isPasswordValid();
-    form.loginButton().disabled = !emailValid || !passwordValid;
-}
-
-function isEmailValid() {
-    const email = form.email().value;
-    return email && validateEmail(email);
-}
-
-function isPasswordValid() {
-    return form.password().value ? true : false;
-}
-
-const form = {
-    email: () => document.getElementById("email"),
-    emailInvalidError: () => document.getElementById("email-invalid-error"),
-    emailRequiredError: () => document.getElementById("email-required-error"),
-    loginButton: () => document.getElementById("login-button"),
-    password: () => document.getElementById("password"),
-    passwordRequiredError: () => document.getElementById("password-required-error"),
-};
+app.listen(port, () => {
+  console.log(`Servidor rodando em http://localhost:${port}`);
+});
