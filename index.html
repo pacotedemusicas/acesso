@@ -8,9 +8,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pacote com mais de 520 mil músicas</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        /* Adicionando o estilo para o ícone de olho */
+        .password-field {
+            position: relative;
+        }
+        .password-field input {
+            padding-right: 40px; /* Espaço para o ícone de olho */
+        }
+        .password-field .eye-icon {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+            fill: #000; /* Cor do ícone */
+        }
+    </style>
 </head>
 <body>
-    <form>
     <div class="form-field">
         <img src="logo.png" alt="Logo da empresa" width="250" height="81">
         <h2>ÁREA DE LOGIN</h2>
@@ -19,22 +38,39 @@
             <input type="email" name="email" id="email" placeholder="Seu email de compra" onchange="onChangeEmail()"/>
             <span id="email-invalid-error" class="error-message">Email é inválido</span>
             <br><br>
-            <input type="password" name="password" id="password" placeholder=" Sua senha" onchange="onChangePassword()"/>
-            <span id="password-invalid-error" class="error-message">Senha é obrigatória</span>
+            <div class="password-field">
+                <input type="password" name="password" id="password" placeholder="Sua senha" onchange="onChangePassword()"/>
+                <span id="password-invalid-error" class="error-message">Senha é obrigatória</span>
+                <!-- Ícone de olho -->
+                <svg class="eye-icon" id="togglePassword" onclick="togglePassword()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path id="eyeIcon" d="M12 4.5C7.64 4.5 4.05 7.74 2.88 12c1.17 4.26 4.76 7.5 9.12 7.5s7.95-3.24 9.12-7.5C19.95 7.74 16.36 4.5 12 4.5zm0 12.5c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zm3.5 3c0-.83-.67-1.5-1.5-1.5S12.5 11.67 12.5 12.5 13.17 14 14 14s1.5-.67 1.5-1.5zM3.54 12c.94-2.24 2.55-4.24 4.73-5.53-.23.56-.35 1.16-.35 1.78 0 3.59 2.91 6.5 6.5 6.5.67 0 1.34-.09 1.98-.27C7.74 14.51 5.17 13.49 3.54 12zm15.93 1.89C16.76 16.51 14.17 18.5 12 18.5c-.62 0-1.23-.12-1.79-.32 1.74-1.34 2.85-3.4 2.85-5.68 0-.77-.1-1.54-.28-2.27 2.35 1.16 4.5 2.59 6.36 4.3-.95 2.17-2.6 4.12-4.97 5.26z"/>
+                </svg>
+            </div>
             <br><br>
             <button type="button" class="solid" id="login-button" disabled="true" onclick="login()">ACESSAR O PACOTE</button>
             <p class="aviso"><span style="font-family: 'Roboto', sans-serif; font-weight: 900; letter-spacing: 0px;">IMPORTANTE:</span> Não compartilhe a sua senha com outra pessoa. Usamos identificação de senha, caso haja vários dispositivos acessando o pacote com a mesma senha, a sua conta será suspensa. O máximo de acesso simultâneo utilizável é um celular e um computador.</p>
         </form>
     </div>
 
-<link rel="stylesheet" href="index.css">
-
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
-<script src="firebase-init.js"></script>
-
-<script src="index.js"></script>
-<script src="validations.js"></script>
-<script src="loading.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <script src="firebase-init.js"></script>
+    <script src="index.js"></script>
+    <script src="validations.js"></script>
+    <script src="loading.js"></script>
+    <script>
+        // Função para alternar a visibilidade da senha
+        function togglePassword() {
+            const passwordField = document.getElementById('password');
+            const eyeIcon = document.getElementById('togglePassword');
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                eyeIcon.innerHTML = '<path d="M12 4.5C7.64 4.5 4.05 7.74 2.88 12c1.17 4.26 4.76 7.5 9.12 7.5s7.95-3.24 9.12-7.5C19.95 7.74 16.36 4.5 12 4.5zm0 12.5c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zm3.5 3c0-.83-.67-1.5-1.5-1.5S12.5 11.67 12.5 12.5 13.17 14 14 14s1.5-.67 1.5-1.5z"/>'; // Ícone de olho aberto
+            } else {
+                passwordField.type = 'password';
+                eyeIcon.innerHTML = '<path d="M12 4.5C7.64 4.5 4.05 7.74 2.88 12c1.17 4.26 4.76 7.5 9.12 7.5s7.95-3.24 9.12-7.5C19.95 7.74 16.36 4.5 12 4.5zm0 12.5c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zm3.5 3c0-.83-.67-1.5-1.5-1.5S12.5 11.67 12.5 12.5 13.17 14 14 14s1.5-.67 1.5-1.5z"/>'; // Ícone de olho fechado
+            }
+        }
+    </script>
 </body>
 </html>
