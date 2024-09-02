@@ -8,38 +8,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pacote com mais de 520 mil músicas</title>
-    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <form id="loginForm" onsubmit="signInWithEmailPassword(); return false;">
-        <div class="form-field">
-            <img src="logo.png" alt="Logo da empresa" width="250" height="81">
-            <h2>ÁREA DE LOGIN</h2>
-            <h3>Acesse mais de 520 mil músicas.</h3>
+    <form>
+    <div class="form-field">
+        <img src="logo.png" alt="Logo da empresa" width="250" height="81">
+        <h2>ÁREA DE LOGIN</h2>
+        <h3>Acesse mais de 520 mil músicas.</h3>
+        <form id="loginForm" onsubmit="signInWithEmailPassword(); return false;">
             <input type="email" name="email" id="email" placeholder="Seu email de compra" onchange="onChangeEmail()"/>
             <span id="email-invalid-error" class="error-message">Email é inválido</span>
             <br><br>
-            <div class="password-field">
-                <input type="password" name="password" id="password" placeholder="Sua senha" onchange="onChangePassword()"/>
-                <button type="button" id="toggle-password" onclick="togglePasswordVisibility()">
-                    <!-- Ícone de olho fechado por padrão -->
-                    <svg xmlns="http://www.w3.org/2000/svg" id="eye-icon" viewBox="0 0 24 24" width="24" height="24">
-                        <path d="M12 6.5c-2.75 0-5.5 1.5-7 4s-1.5 5.5 0 7 4.25 4 7 4 5.5-1.5 7-4 1.5-5.5 0-7-4.25-4-7-4zm0 6.5c-1.5 0-3-1.5-3-3s1.5-3 3-3 3 1.5 3 3-1.5 3-3 3zm0-8c-3.5 0-6.5 2-8 5s-2 6.5 0 9 4.5 5 8 5 6.5-2 8-5 2-6.5 0-9-4.5-5-8-5z"/>
-                    </svg>
-                </button>
-            </div>
+            <input type="password" name="password" id="password" placeholder=" Sua senha" onchange="onChangePassword()"/>
             <span id="password-invalid-error" class="error-message">Senha é obrigatória</span>
             <br><br>
             <button type="button" class="solid" id="login-button" disabled="true" onclick="login()">ACESSAR O PACOTE</button>
             <p class="aviso"><span style="font-family: 'Roboto', sans-serif; font-weight: 900; letter-spacing: 0px;">IMPORTANTE:</span> Não compartilhe a sua senha com outra pessoa. Usamos identificação de senha, caso haja vários dispositivos acessando o pacote com a mesma senha, a sua conta será suspensa. O máximo de acesso simultâneo utilizável é um celular e um computador.</p>
-        </div>
-    </form>
+        </form>
+    </div>
 
-    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
-    <script src="firebase-init.js"></script>
-    <script src="index.js"></script>
-    <script src="validations.js"></script>
-    <script src="loading.js"></script>
+<link rel="stylesheet" href="index.css">
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="firebase-init.js"></script>
+
+<script src="index.js"></script>
+<script src="validations.js"></script>
+<script src="loading.js"></script>
 </body>
 </html>
