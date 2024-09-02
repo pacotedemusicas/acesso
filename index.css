@@ -108,26 +108,3 @@ h3 {
     font-size: 0.9rem;
     display: none; /* Escondido inicialmente */
 }
-.password-field {
-    position: relative;
-    display: inline-block;
-}
-
-#password {
-    padding-right: 40px; /* Espaço para o ícone */
-}
-
-#toggle-password {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: transparent;
-    border: none;
-    cursor: pointer;
-}
-
-#eye-icon {
-    fill: #fff; /* Cor do ícone */
-    transition: fill 0.3s;
-}
