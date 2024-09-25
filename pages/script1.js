@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const urls = [
         // Adicione aqui os URLs correspondentes a cada gênero musical
-        "https://sites.google.com/view/atualizacoesmensais/in%C3%ADcio", "https://drive.google.com/drive/folders/1FD85q5o2K0Z6-1VagVWX39rH0bnzUtij", "https://drive.google.com/drive/folders/1Ye9Jr_s4H3oSf-eMwn9hRfmCjjg_s84F", 
+        "https://drive.google.com/drive/folders/1zGL52ICAQs3AcTVXOrWXu-8hX_4xKPPv", "https://drive.google.com/drive/folders/1FD85q5o2K0Z6-1VagVWX39rH0bnzUtij", "https://drive.google.com/drive/folders/1Ye9Jr_s4H3oSf-eMwn9hRfmCjjg_s84F", 
         "https://drive.google.com/drive/folders/1LUQXsP72CUDp7KjpTHHAh8KQJ146SPRs", "https://drive.google.com/drive/folders/18GOJAsdSTIw-yFbq9c64wHLNrhR-WI8I", "https://drive.google.com/drive/folders/1UaPn-gClfMRbVZggNAdfJUllQXdzW_mE", 
         "https://drive.google.com/drive/folders/1YyD9UCp9npddXsvKJ5cXgmU14ducokjz", "https://drive.google.com/drive/folders/1mI_Q26iwK75gafSxEI2p1VFQmsupxAKT", "https://drive.google.com/drive/folders/1ZdNOOWB-pOsdjihmdgtrgqPlraDg3VVm", 
         "https://drive.google.com/drive/folders/1s4fGKh1LXbkyDh9szj31kYEEm_ba3rZr", "https://drive.google.com/drive/folders/1sDXaRftfYQ8IsyteEcd_Oc5CNVfP2OfS", "https://drive.google.com/drive/folders/1RyAic406q4oAvCBhCmmG_RIoj_jlunD9", 
